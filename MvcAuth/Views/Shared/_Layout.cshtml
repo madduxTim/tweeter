@@ -21,10 +21,10 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
+                    @*<li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li>@Html.ActionLink("About", "About", "Home")</li>*@
                     <li>@Html.ActionLink("Blog Posts", "Index", "Blog")</li>
-                    <li><input class="input-lg" type="search" placeholder="Search!" /></li>
+                    <li><input class="input-lg" type="search" placeholder="Search" /></li>
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
@@ -34,7 +34,7 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            <p>&copy; @DateTime.Now.Year - Tweeter - <em>Because these idiots weren't going to troll themselves.</em></p>
         </footer>
     </div>
 
