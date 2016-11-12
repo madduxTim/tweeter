@@ -49,6 +49,7 @@ namespace MvcAuth.Models
     public class LoginViewModel
     {
         [Required]
+        //[UserName]
         [Display(Name = "UserName")]
         public string UserName { get; set; }
 
@@ -69,6 +70,7 @@ namespace MvcAuth.Models
     public class RegisterViewModel
     {
         [Required]
+        //[UserName]
         [Display(Name = "UserName")]
         public string UserName { get; set; }
 
