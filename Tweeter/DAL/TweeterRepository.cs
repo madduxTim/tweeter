@@ -46,11 +46,6 @@ namespace Tweeter.DAL
             return false;
 
         }
-        public List<Tweet> GetTweets()
-        {
-            //return Context.TweeterUsers.Select(u => u.BaseUser.UserName).ToList();
-            return Context.Tweets.ToList();
-        }
 
         public void AddTweet(Tweet tweet)
         {
@@ -62,6 +57,38 @@ namespace Tweeter.DAL
         {
             Context.Tweets.Remove(tweet);
             Context.SaveChanges();
+        }
+
+        public void AddTweet(string username, string tweet_message)
+        {
+            Twit found_twit = Context.TweeterUsers.FirstOrDefault(u => u.BaseUser.UserName == username);
+            if (found_twit != null)
+            {
+                Tweet new_tweet = new Tweet
+                {
+                    Message = tweet_message,
+                    CreatedAt = DateTime.Now,
+                    Author = found_twit
+                };
+                Context.Tweets.Add(new_tweet);
+                Context.SaveChanges();
+            }
+        }
+
+        public Tweet RemoveTweet(int tweet_id)
+        {
+            Tweet found_tweet = Context.Tweets.FirstOrDefault(t => t.TweetId == tweet_id);
+            if (found_tweet != null)
+            {
+                Context.Tweets.Remove(found_tweet);
+                Context.SaveChanges();
+            }
+            return found_tweet;
+        }
+
+        public List<Tweet> GetTweets()
+        {
+            return Context.Tweets.ToList();
         }
     }
 }
