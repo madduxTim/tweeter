@@ -13,9 +13,7 @@ namespace Tweeter.Models
             [Required]
             [MinLength(2)]
             public string Message { get; set; }
-
             public string ImageURL { get; set; }
-
         }
     }
 }

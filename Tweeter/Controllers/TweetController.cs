@@ -14,7 +14,6 @@ namespace Tweeter.Controllers
     public class TweetController : ApiController
     {
         TweeterRepository Repo = new TweeterRepository();
-
         // GET api/<controller>
         public IEnumerable<Tweet> Get()
         {
@@ -30,7 +29,6 @@ namespace Tweeter.Controllers
         // POST api/<controller>
         public void Post([FromBody]TweetViewModel tweet)
         {
-            
             if (ModelState.IsValid && User.Identity.IsAuthenticated)
             {
                 string user_id = User.Identity.GetUserId();
@@ -45,7 +43,6 @@ namespace Tweeter.Controllers
                 };
                 Repo.AddTweet(new_tweet);
             }
-            
         }
 
         // PUT api/<controller>/5
